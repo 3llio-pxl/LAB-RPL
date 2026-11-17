@@ -23,6 +23,7 @@
                         brand: {
                             50: '#f0f7ff',
                             100: '#e0effe',
+                            400: '#60a5fa',
                             500: '#3b82f6',
                             600: '#2563eb',
                             700: '#1d4ed8',
@@ -61,9 +62,10 @@
 
             <!-- CTA Button -->
             <div class="hidden md:block">
-                <a href="#jadwal" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-brand-600/25 inline-flex items-center gap-2">
+                <button onclick="openBookingModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-lg shadow-brand-600/25 inline-flex items-center gap-2 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     Pinjam Lab
-                </a>
+                </button>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
@@ -81,9 +83,9 @@
             <a href="#fasilitas" class="block py-2 text-slate-300 hover:text-brand-500 font-medium">Fasilitas</a>
             <a href="#jadwal" class="block py-2 text-slate-300 hover:text-brand-500 font-medium">Jadwal</a>
             <a href="#kontak" class="block py-2 text-slate-300 hover:text-brand-500 font-medium">Kontak</a>
-            <a href="#jadwal" class="block w-full text-center bg-brand-600 hover:bg-brand-700 text-white py-2.5 rounded-xl font-medium text-sm transition-all">
+            <button onclick="openBookingModal()" class="block w-full text-center bg-brand-600 hover:bg-brand-700 text-white py-2.5 rounded-xl font-medium text-sm transition-all">
                 Pinjam Lab
-            </a>
+            </button>
         </div>
     </header>
 
@@ -105,12 +107,12 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                    <a href="#fasilitas" class="bg-brand-600 hover:bg-brand-700 text-white px-7 py-3.5 rounded-xl font-semibold text-center transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
-                        Jelajahi Fasilitas
+                    <a href="#jadwal" class="bg-brand-600 hover:bg-brand-700 text-white px-7 py-3.5 rounded-xl font-semibold text-center transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+                        Cek Ketersediaan & Pinjam
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
-                    <a href="#tentang" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-7 py-3.5 rounded-xl font-semibold text-center transition-all">
-                        Pelajari Lebih Lanjut
+                    <a href="#fasilitas" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 px-7 py-3.5 rounded-xl font-semibold text-center transition-all">
+                        Jelajahi Fasilitas
                     </a>
                 </div>
             </div>
@@ -251,13 +253,25 @@
         </div>
     </section>
 
-    <!-- BAGIAN JADWAL -->
+    <!-- BAGIAN JADWAL & PEMINJAMAN LAB -->
     <section id="jadwal" class="py-20 bg-slate-800/40 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <p class="text-brand-400 font-semibold text-sm tracking-wider uppercase mb-2">Waktu Operasional</p>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Jadwal Penggunaan Lab</h2>
-                <p class="text-slate-400">Jadwal resmi kegiatan praktikum serta sesi pengembangan mandiri Laboratorium RPL.</p>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <p class="text-brand-400 font-semibold text-sm tracking-wider uppercase mb-2">Waktu Operasional & Booking</p>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-tight">Jadwal & Ketersediaan Lab</h2>
+                    <p class="text-slate-400 max-w-2xl">
+                        Pilih jadwal yang berstatus <span class="text-emerald-400 font-medium">Tersedia</span> untuk mengajukan peminjaman ruangan (Lab A / Lab B). Jadwal berstatus <span class="text-rose-400 font-medium">Penuh</span> tidak dapat dipinjam.
+                    </p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="resetDemoData()" class="text-xs text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 px-3.5 py-2.5 rounded-xl transition-colors">
+                        Reset Data Simulasi
+                    </button>
+                    <button onclick="openBookingModal()" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-brand-600/25 flex items-center gap-2">
+                        + Ajukan Peminjaman
+                    </button>
+                </div>
             </div>
 
             <!-- Table Card -->
@@ -266,55 +280,28 @@
                     <table class="w-full text-left border-collapse text-sm">
                         <thead>
                             <tr class="bg-slate-900/80 border-b border-slate-700 text-slate-300 uppercase font-semibold text-xs tracking-wider">
-                                <th class="py-4 px-6">Hari</th>
-                                <th class="py-4 px-6">Waktu</th>
-                                <th class="py-4 px-6">Kegiatan / Mata Pelajaran</th>
-                                <th class="py-4 px-6">Keterangan</th>
+                                <th class="py-4 px-6">Hari & Waktu</th>
+                                <th class="py-4 px-6">Kegiatan / Sesi</th>
+                                <th class="py-4 px-6">Kuota Ruang</th>
+                                <th class="py-4 px-6">Status</th>
+                                <th class="py-4 px-6 text-right">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-700/60 text-slate-300">
-                            <tr class="hover:bg-slate-700/30 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-white">Senin</td>
-                                <td class="py-4 px-6">08.00 - 10.00 WIB</td>
-                                <td class="py-4 px-6">Praktikum Pemrograman Dasar</td>
-                                <td class="py-4 px-6">
-                                    <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1 rounded-full font-medium">Terjadwal</span>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-slate-700/30 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-white">Selasa</td>
-                                <td class="py-4 px-6">10.00 - 12.00 WIB</td>
-                                <td class="py-4 px-6">Pengembangan Perangkat Web</td>
-                                <td class="py-4 px-6">
-                                    <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1 rounded-full font-medium">Terjadwal</span>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-slate-700/30 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-white">Rabu</td>
-                                <td class="py-4 px-6">08.00 - 10.00 WIB</td>
-                                <td class="py-4 px-6">Praktikum Basis Data & SQL</td>
-                                <td class="py-4 px-6">
-                                    <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1 rounded-full font-medium">Terjadwal</span>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-slate-700/30 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-white">Kamis</td>
-                                <td class="py-4 px-6">13.00 - 15.00 WIB</td>
-                                <td class="py-4 px-6">Pengembangan Aplikasi Mobile</td>
-                                <td class="py-4 px-6">
-                                    <span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs px-3 py-1 rounded-full font-medium">Terjadwal</span>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-slate-700/30 transition-colors">
-                                <td class="py-4 px-6 font-semibold text-white">Jumat</td>
-                                <td class="py-4 px-6">08.00 - 11.00 WIB</td>
-                                <td class="py-4 px-6">Peminjaman Mandiri & Ekstrakurikuler Coding</td>
-                                <td class="py-4 px-6">
-                                    <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-3 py-1 rounded-full font-medium">Terbuka Umum</span>
-                                </td>
-                            </tr>
+                        <tbody id="schedule-table-body" class="divide-y divide-slate-700/60 text-slate-300">
+                            <!-- Diisi otomatis oleh JavaScript -->
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- Riwayat Peminjaman Aktif -->
+            <div class="mt-10">
+                <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+                    Daftar Peminjaman Tercatat
+                </h3>
+                <div id="booking-history-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Diisi otomatis oleh JavaScript -->
                 </div>
             </div>
         </div>
@@ -347,7 +334,7 @@
                 </ul>
             </div>
 
-            <!-- Footer Contact (Alamat & WhatsApp Saja) -->
+            <!-- Footer Contact -->
             <div>
                 <h3 class="text-white font-semibold text-base mb-4">Kontak & Lokasi</h3>
                 <ul class="space-y-3">
@@ -362,7 +349,7 @@
                 </ul>
             </div>
 
-            <!-- Footer Social (Instagram & TikTok Saja) -->
+            <!-- Footer Social -->
             <div>
                 <h3 class="text-white font-semibold text-base mb-4">Media Sosial</h3>
                 <div class="flex flex-col space-y-2.5">
@@ -382,7 +369,75 @@
         </div>
     </footer>
 
-    <!-- Interactive Script -->
+    <!-- MODAL FORM PEMINJAMAN LAB -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative animate-fade-in">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-1">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div class="mb-6">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-400">Formulir Reservasi</span>
+                <h3 class="text-2xl font-bold text-white mt-1">Pinjam Laboratorium RPL</h3>
+                <p class="text-slate-400 text-sm mt-1">Hanya jadwal yang belum penuh yang dapat dipilih.</p>
+            </div>
+
+            <!-- Alert Peringatan jika penuh / error -->
+            <div id="modal-alert" class="hidden mb-4 p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-sm"></div>
+
+            <form id="booking-form" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1.5">Pilih Jadwal & Sesi</label>
+                    <select id="slot-select" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-brand-500">
+                        <!-- Diisi otomatis oleh JavaScript -->
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1.5">Pilih Ruangan Lab</label>
+                    <select id="room-select" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-brand-500">
+                        <option value="Lab A">Lab A (Utama)</option>
+                        <option value="Lab B">Lab B (Pengembangan)</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1.5">Nama Peminjam</label>
+                        <input type="text" id="borrower-name" required placeholder="Contoh: Budi Santoso" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-brand-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1.5">Kelas / Jabatan</label>
+                        <input type="text" id="borrower-class" required placeholder="Contoh: XI PPLG 1 / Guru" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-brand-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1.5">Keperluan Peminjaman</label>
+                    <textarea id="borrower-purpose" rows="2" required placeholder="Contoh: Latihan LKS Web Technology / Rapat Ekskul Coding" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-brand-500"></textarea>
+                </div>
+
+                <div class="pt-2 flex items-center justify-end gap-3">
+                    <button type="button" onclick="closeBookingModal()" class="px-5 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 text-sm font-medium transition-colors">
+                        Batal
+                    </button>
+                    <button type="submit" id="submit-booking-btn" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition-all shadow-lg shadow-brand-600/25">
+                        Konfirmasi Pinjam
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFIKASI -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
+        <div class="bg-slate-800 border border-emerald-500/40 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <p id="toast-message" class="text-sm font-medium">Peminjaman berhasil!</p>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE SCRIPT -->
     <script>
         // Toggle Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -392,13 +447,279 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
+        mobileMenu.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // Data Awal Jadwal Lab (Total kapasitas tiap sesi = 2 Lab: Lab A & Lab B)
+        const defaultSchedules = [
+            {
+                id: 'senin-pagi',
+                day: 'Senin',
+                time: '08.00 - 10.00 WIB',
+                activity: 'Praktikum Pemrograman Dasar',
+                maxCapacity: 2,
+                bookedRooms: ['Lab A', 'Lab B'], // Penuh (2/2)
+                bookings: [
+                    { room: 'Lab A', name: 'Kelas X PPLG 1', class: 'Jadwal KBM', purpose: 'Praktikum Pemrograman Dasar' },
+                    { room: 'Lab B', name: 'Kelas X PPLG 2', class: 'Jadwal KBM', purpose: 'Praktikum Pemrograman Dasar' }
+                ]
+            },
+            {
+                id: 'selasa-pagi',
+                day: 'Selasa',
+                time: '10.00 - 12.00 WIB',
+                activity: 'Pengembangan Perangkat Web',
+                maxCapacity: 2,
+                bookedRooms: ['Lab A'], // Tersedia 1 ruang (1/2)
+                bookings: [
+                    { room: 'Lab A', name: 'Kelas XI PPLG 1', class: 'Jadwal KBM', purpose: 'Praktikum Web Development' }
+                ]
+            },
+            {
+                id: 'rabu-pagi',
+                day: 'Rabu',
+                time: '08.00 - 10.00 WIB',
+                activity: 'Praktikum Basis Data & SQL',
+                maxCapacity: 2,
+                bookedRooms: ['Lab A', 'Lab B'], // Penuh (2/2)
+                bookings: [
+                    { room: 'Lab A', name: 'Kelas XI PPLG 1', class: 'Jadwal KBM', purpose: 'Praktikum Basis Data' },
+                    { room: 'Lab B', name: 'Kelas XI PPLG 2', class: 'Jadwal KBM', purpose: 'Praktikum Basis Data' }
+                ]
+            },
+            {
+                id: 'kamis-siang',
+                day: 'Kamis',
+                time: '13.00 - 15.00 WIB',
+                activity: 'Pengembangan Aplikasi Mobile',
+                maxCapacity: 2,
+                bookedRooms: ['Lab B'], // Tersedia 1 ruang (1/2)
+                bookings: [
+                    { room: 'Lab B', name: 'Kelas XII PPLG', class: 'Jadwal KBM', purpose: 'Uji Kompetensi Mobile App' }
+                ]
+            },
+            {
+                id: 'jumat-pagi',
+                day: 'Jumat',
+                time: '08.00 - 11.00 WIB',
+                activity: 'Peminjaman Mandiri & Ekstrakurikuler Coding',
+                maxCapacity: 2,
+                bookedRooms: [], // Kosong sepenuhnya (0/2)
+                bookings: []
+            }
+        ];
+
+        // Load dari localStorage atau gunakan data awal
+        let schedules = JSON.parse(localStorage.getItem('labRplSchedules')) || JSON.parse(JSON.stringify(defaultSchedules));
+
+        function saveSchedules() {
+            localStorage.setItem('labRplSchedules', JSON.stringify(schedules));
+        }
+
+        // Render Tabel Jadwal & Riwayat Peminjaman
+        function renderSchedules() {
+            const tbody = document.getElementById('schedule-table-body');
+            const historyList = document.getElementById('booking-history-list');
+            tbody.innerHTML = '';
+            historyList.innerHTML = '';
+
+            let hasUserBookings = false;
+
+            schedules.forEach(slot => {
+                const usedCount = slot.bookedRooms.length;
+                const isFull = usedCount >= slot.maxCapacity;
+                const availableCount = slot.maxCapacity - usedCount;
+
+                // Badge Status
+                const statusBadge = isFull
+                    ? `<span class="inline-flex items-center gap-1.5 bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs px-3 py-1 rounded-full font-semibold">
+                         <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> Penuh (Tidak Bisa Dipinjam)
+                       </span>`
+                    : `<span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-3 py-1 rounded-full font-semibold">
+                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Tersedia (${availableCount} Ruang)
+                       </span>`;
+
+                // Tombol Aksi
+                const actionButton = isFull
+                    ? `<button disabled class="bg-slate-700/50 text-slate-500 border border-slate-700 px-4 py-2 rounded-xl text-xs font-semibold cursor-not-allowed">
+                         Penuh
+                       </button>`
+                    : `<button onclick="openBookingModal('${slot.id}')" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-all shadow-md shadow-brand-600/20 cursor-pointer">
+                         Pinjam Lab
+                       </button>`;
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-700/30 transition-colors';
+                tr.innerHTML = `
+                    <td class="py-4 px-6">
+                        <div class="font-semibold text-white">${slot.day}</div>
+                        <div class="text-xs text-slate-400 mt-0.5">${slot.time}</div>
+                    </td>
+                    <td class="py-4 px-6 font-medium text-slate-200">${slot.activity}</td>
+                    <td class="py-4 px-6">
+                        <span class="font-mono text-xs bg-slate-900 border border-slate-700 px-2.5 py-1 rounded-lg text-slate-300">
+                            ${usedCount} / ${slot.maxCapacity} Ruang Terisi
+                        </span>
+                    </td>
+                    <td class="py-4 px-6">${statusBadge}</td>
+                    <td class="py-4 px-6 text-right">${actionButton}</td>
+                `;
+                tbody.appendChild(tr);
+
+                // Render Kartu Peminjaman Aktif
+                slot.bookings.forEach((b, idx) => {
+                    hasUserBookings = true;
+                    const card = document.createElement('div');
+                    card.className = 'bg-slate-800/90 border border-slate-700/80 p-4 rounded-xl flex flex-col justify-between gap-2';
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20 px-2.5 py-0.5 rounded-md">${b.room}</span>
+                            <span class="text-xs text-slate-400">${slot.day}, ${slot.time}</span>
+                        </div>
+                        <div class="mt-1">
+                            <p class="text-sm font-semibold text-white">${b.name} <span class="text-xs font-normal text-slate-400">(${b.class})</span></p>
+                            <p class="text-xs text-slate-400 mt-0.5">${b.purpose}</p>
+                        </div>
+                    `;
+                    historyList.appendChild(card);
+                });
+            });
+
+            if (!hasUserBookings) {
+                historyList.innerHTML = `<p class="text-slate-400 text-sm col-span-full">Belum ada peminjaman tercatat.</p>`;
+            }
+        }
+
+        // Kontrol Modal
+        const modal = document.getElementById('booking-modal');
+        const slotSelect = document.getElementById('slot-select');
+        const roomSelect = document.getElementById('room-select');
+        const modalAlert = document.getElementById('modal-alert');
+
+        function openBookingModal(preselectedSlotId = null) {
+            modalAlert.classList.add('hidden');
+            slotSelect.innerHTML = '';
+
+            let availableSlotsCount = 0;
+
+            schedules.forEach(slot => {
+                const isFull = slot.bookedRooms.length >= slot.maxCapacity;
+                const option = document.createElement('option');
+                option.value = slot.id;
+                option.disabled = isFull;
+                option.textContent = isFull
+                    ? `${slot.day} (${slot.time}) - PENUH`
+                    : `${slot.day} (${slot.time}) - Sisa ${slot.maxCapacity - slot.bookedRooms.length} Ruang`;
+                
+                if (!isFull) availableSlotsCount++;
+                slotSelect.appendChild(option);
+            });
+
+            if (availableSlotsCount === 0) {
+                modalAlert.textContent = 'Maaf, seluruh jadwal laboratorium saat ini sudah penuh dan tidak dapat dipinjam.';
+                modalAlert.classList.remove('hidden');
+                document.getElementById('submit-booking-btn').disabled = true;
+            } else {
+                document.getElementById('submit-booking-btn').disabled = false;
+                if (preselectedSlotId) {
+                    slotSelect.value = preselectedSlotId;
+                } else {
+                    const firstAvailable = schedules.find(s => s.bookedRooms.length < s.maxCapacity);
+                    if (firstAvailable) slotSelect.value = firstAvailable.id;
+                }
+                updateAvailableRooms();
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Update pilihan ruang Lab A / Lab B berdasarkan jadwal yang dipilih
+        function updateAvailableRooms() {
+            const selectedSlot = schedules.find(s => s.id === slotSelect.value);
+            if (!selectedSlot) return;
+
+            const allRooms = ['Lab A', 'Lab B'];
+            roomSelect.innerHTML = '';
+
+            allRooms.forEach(room => {
+                const isBooked = selectedSlot.bookedRooms.includes(room);
+                const opt = document.createElement('option');
+                opt.value = room;
+                opt.disabled = isBooked;
+                opt.textContent = isBooked ? `${room} (Sudah Terisi / Penuh)` : `${room} (Tersedia)`;
+                roomSelect.appendChild(opt);
+            });
+
+            const firstFreeRoom = allRooms.find(r => !selectedSlot.bookedRooms.includes(r));
+            if (firstFreeRoom) roomSelect.value = firstFreeRoom;
+        }
+
+        slotSelect.addEventListener('change', updateAvailableRooms);
+
+        // Proses Submit Peminjaman
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const slotId = slotSelect.value;
+            const selectedRoom = roomSelect.value;
+            const name = document.getElementById('borrower-name').value.trim();
+            const borrowerClass = document.getElementById('borrower-class').value.trim();
+            const purpose = document.getElementById('borrower-purpose').value.trim();
+
+            const slot = schedules.find(s => s.id === slotId);
+
+            // Validasi Ganda: Pastikan belum penuh
+            if (!slot || slot.bookedRooms.length >= slot.maxCapacity || slot.bookedRooms.includes(selectedRoom)) {
+                modalAlert.textContent = 'Gagal meminjam: Jadwal atau ruangan tersebut sudah penuh!';
+                modalAlert.classList.remove('hidden');
+                return;
+            }
+
+            // Simpan Data Peminjaman
+            slot.bookedRooms.push(selectedRoom);
+            slot.bookings.push({
+                room: selectedRoom,
+                name: name,
+                class: borrowerClass,
+                purpose: purpose
+            });
+
+            saveSchedules();
+            renderSchedules();
+            closeBookingModal();
+            this.reset();
+
+            showToast(`Berhasil meminjam ${selectedRoom} pada hari ${slot.day}!`);
+        });
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('hidden', 'translate-y-4', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => toast.classList.add('hidden'), 300);
+            }, 3500);
+        }
+
+        function resetDemoData() {
+            localStorage.removeItem('labRplSchedules');
+            schedules = JSON.parse(JSON.stringify(defaultSchedules));
+            renderSchedules();
+            showToast('Data jadwal berhasil di-reset ke kondisi awal.');
+        }
+
+        // Inisialisasi awal saat halaman dimuat
+        renderSchedules();
     </script>
 </body>
 </html>

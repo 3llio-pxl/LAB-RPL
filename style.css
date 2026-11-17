@@ -1,0 +1,471 @@
+
+/* =================================
+   PENGATURAN DASAR
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* =================================
+   HEADER DAN NAVBAR
+================================= */
+
+header {
+    background-color: #0f172a;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #22d3ee;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #22d3ee;
+}
+
+
+/* =================================
+   HERO SECTION
+================================= */
+
+.hero {
+    background: linear-gradient(
+        120deg,
+        #0f172a,
+        #164e63
+    );
+
+    color: white;
+    min-height: 550px;
+    padding: 70px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.subtitle {
+    color: #22d3ee;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #22d3ee;
+}
+
+.hero-description {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #06b6d4;
+    color: #0f172a;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #22d3ee;
+    transform: translateY(-3px);
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =================================
+   JUDUL SETIAP SECTION
+================================= */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title p {
+    color: #0891b2;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: #0f172a;
+    margin: 8px 0;
+}
+
+.section-title span {
+    color: #64748b;
+}
+
+
+/* =================================
+   TENTANG KAMI
+================================= */
+
+.about {
+    padding: 80px 8%;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    color: #0f172a;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.about-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.about-info h3 {
+    color: #0891b2;
+    font-size: 28px;
+}
+
+.about-info p {
+    font-size: 13px;
+}
+
+
+/* =================================
+   BAGIAN FASILITAS
+================================= */
+
+.facilities {
+    background-color: #eef6fa;
+    padding: 80px 8%;
+}
+
+.facility-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.facility-card {
+    background-color: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+    transition: 0.3s;
+}
+
+.facility-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.facility-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.facility-card h3 {
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.facility-card p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* =================================
+   BAGIAN JADWAL
+================================= */
+
+.schedule {
+    padding: 80px 8%;
+}
+
+.table-container {
+    max-width: 1100px;
+    margin: auto;
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+thead {
+    background-color: #0f172a;
+    color: white;
+}
+
+th, td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+tbody tr:hover {
+    background-color: #f0f9ff;
+}
+
+.status {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status.open {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    background-color: #0f172a;
+    color: white;
+    padding-top: 55px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 8% 40px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr;
+    gap: 35px;
+}
+
+.footer-about h2 {
+    margin-bottom: 15px;
+}
+
+.footer-about h2 span {
+    color: #22d3ee;
+}
+
+.footer-about p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.footer-container h3 {
+    margin-bottom: 15px;
+    color: #22d3ee;
+}
+
+.footer-links a,
+.footer-social a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: #22d3ee;
+}
+
+.footer-contact p {
+    color: #cbd5e1;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.copyright {
+    border-top: 1px solid #334155;
+    text-align: center;
+    padding: 20px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+
+/* =================================
+   RESPONSIVE UNTUK TABLET
+================================= */
+
+@media screen and (max-width: 900px) {
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .facility-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =================================
+   RESPONSIVE UNTUK HP
+================================= */
+
+@media screen and (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-info {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .facility-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+}

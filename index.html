@@ -107,6 +107,40 @@
     .footer-inner strong{color:var(--ink)}
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* Jadwal & peminjaman lab */
+    .schedule-section{background:#e9eee4;border-block:1.8px solid var(--ink)}
+    .schedule-toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .schedule-btn{border:1.8px solid var(--ink);border-radius:999px;padding:11px 17px;font-weight:800;background:var(--green);box-shadow:3px 3px 0 var(--ink);cursor:pointer}
+    .schedule-btn.secondary{background:var(--paper)}
+    .schedule-table-wrap{overflow-x:auto;border:1.8px solid var(--ink);border-radius:18px;background:#fff;box-shadow:4px 4px 0 var(--ink)}
+    .schedule-table{width:100%;border-collapse:collapse;min-width:760px;text-align:left;font-size:.88rem}
+    .schedule-table th,.schedule-table td{padding:15px 17px;border-bottom:1px solid #dce2d9}
+    .schedule-table th{background:#17221d;color:#fff;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+    .schedule-table tr:last-child td{border-bottom:0}
+    .schedule-status{display:inline-block;border-radius:999px;padding:6px 10px;font-size:.72rem;font-weight:800;background:#f4dfaa;color:#654500}
+    .schedule-status.full{background:#ffd2c8;color:#7c2615}
+    .table-action{border:1.5px solid var(--ink);background:var(--green);border-radius:999px;padding:7px 11px;font-weight:800;font-size:.75rem;cursor:pointer}
+    .table-action:disabled{opacity:.5;cursor:not-allowed}
+    .booking-modal{position:fixed;inset:0;z-index:2000;background:rgba(15,25,20,.72);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:18px;overflow-y:auto}
+    .booking-modal.open{display:flex}
+    .booking-panel{width:min(100%,620px);background:var(--paper);border:2px solid var(--ink);border-radius:24px;padding:clamp(22px,4vw,34px);box-shadow:8px 8px 0 var(--ink);position:relative;margin:auto}
+    .booking-panel h3{font-size:1.8rem;letter-spacing:-.05em;margin:6px 0}
+    .booking-panel p{color:#59645d;line-height:1.6;font-size:.9rem}
+    .booking-close{position:absolute;right:18px;top:16px;border:1.5px solid var(--ink);background:white;border-radius:50%;width:36px;height:36px;font-size:1.2rem;cursor:pointer}
+    .booking-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+    .booking-field{display:flex;flex-direction:column;gap:6px}
+    .booking-field.full{grid-column:1/-1}
+    .booking-field label{font-size:.8rem;font-weight:800}
+    .booking-field input,.booking-field select,.booking-field textarea{width:100%;border:1.5px solid var(--ink);border-radius:11px;padding:11px 12px;background:#fff;color:var(--ink);font:inherit;font-size:.9rem}
+    .availability-message{grid-column:1/-1;border:1.5px solid var(--ink);border-radius:12px;padding:12px;font-size:.83rem;font-weight:700;background:#fff}
+    .availability-message.ok{background:#e1f3d2}.availability-message.no{background:#ffd9d0}
+    .booking-submit{grid-column:1/-1;border:1.5px solid var(--ink);border-radius:999px;padding:13px;background:var(--green);font-weight:900;box-shadow:3px 3px 0 var(--ink);cursor:pointer}
+    .booking-submit:disabled{opacity:.5;cursor:not-allowed}
+    .booking-toast{position:fixed;z-index:2100;right:20px;bottom:20px;background:var(--ink);color:#fff;border:1.5px solid var(--green);padding:14px 18px;border-radius:14px;display:none;max-width:min(90vw,420px);box-shadow:4px 4px 0 rgba(0,0,0,.2);font-size:.88rem}
+    .booking-toast.show{display:block}
+    @media(max-width:620px){.booking-form{grid-template-columns:1fr}.booking-field.full,.availability-message,.booking-submit{grid-column:1}.schedule-toolbar{width:100%}.schedule-btn{flex:1}}
+
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
     @media(max-width:850px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero-art{min-height:360px}.section-head{align-items:start;flex-direction:column}.facility-grid{grid-template-columns:1fr 1fr}.contact-box{align-items:flex-start;flex-direction:column}.nav-links{gap:15px}}
     @media(max-width:620px){.nav-inner{padding:12px 5%}.menu-toggle{display:block}.nav-cta{display:none}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;padding:20px 6%;background:var(--paper);border-bottom:1.8px solid var(--ink);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.hero{padding:55px 0 65px}.hero-grid{gap:25px}h1{font-size:clamp(3rem,15vw,4.5rem)}.hero-art{min-height:310px}.art-card{height:260px}.screen{height:140px}.sticker{bottom:10px}.hero-copy{font-size:.95rem}.content-section{padding:70px 0!important}.facility-grid,.activity-grid{grid-template-columns:1fr}.facility-card{min-height:190px}.about-visual{min-height:260px}.quote-band{padding:55px 5%}.footer-inner{align-items:flex-start;flex-direction:column}}
@@ -119,9 +153,9 @@
       <a class="brand" href="#beranda"><span class="brand-mark">&lt;/&gt;</span> LAB RPL</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
       <div class="nav-links" id="navLinks">
-        <a href="#tentang">Tentang</a><a href="#fasilitas">Fasilitas</a><a href="#kegiatan">Kegiatan</a><a href="#faq">FAQ</a>
+        <a href="#tentang">Tentang</a><a href="#fasilitas">Fasilitas</a><a href="#kegiatan">Kegiatan</a><a href="#jadwal">Jadwal</a><a href="#faq">FAQ</a>
       </div>
-      <a class="nav-cta" href="#fasilitas">Jelajahi Lab <span>↗</span></a>
+      <button class="nav-cta" type="button" onclick="openBookingModal()">Pinjam Lab <span>↗</span></button>
     </div>
   </nav>
 
@@ -181,6 +215,28 @@
 
     <section class="quote-band"><div class="wrap reveal"><div class="kicker">LAB RPL · SMK BHAKTI PERSADA</div><p>“Setiap baris kode adalah langkah kecil menuju <span>karya besar.</span>”</p></div></section>
 
+
+    <section class="content-section schedule-section" id="jadwal">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">04 / Waktu operasional & booking</div><h2>Jadwal penggunaan lab.</h2></div>
+          <div><p class="section-note">Lihat jadwal penggunaan Lab A dan Lab B. Peminjaman dapat memilih hari dan jam sendiri selama tidak bentrok.</p>
+            <div class="schedule-toolbar" style="margin-top:16px">
+              <button class="schedule-btn" type="button" onclick="openBookingModal()">＋ Pinjam Lab</button>
+              <button class="schedule-btn secondary" type="button" onclick="resetDemoData()">Reset data simulasi</button>
+            </div>
+          </div>
+        </div>
+        <div class="schedule-table-wrap reveal">
+          <table class="schedule-table">
+            <thead><tr><th>Hari</th><th>Jam</th><th>Ruangan</th><th>Kegiatan / Peminjam</th><th>Status</th><th>Aksi</th></tr></thead>
+            <tbody id="schedule-table-body"><tr><td colspan="6">Memuat jadwal...</td></tr></tbody>
+          </table>
+        </div>
+        <p class="section-note" style="margin-top:14px;font-size:.78rem">Catatan: data peminjaman pada versi ini tersimpan di browser/perangkat yang digunakan (simulasi localStorage), belum tersinkron antarperangkat.</p>
+      </div>
+    </section>
+
     <section class="content-section" id="faq">
       <div class="wrap">
         <div class="section-head reveal"><div><div class="kicker">04 / Pertanyaan umum</div><h2>Sering ditanyakan.</h2></div><p class="section-note">Informasi singkat tentang Laboratorium Rekayasa Perangkat Lunak.</p></div>
@@ -195,6 +251,28 @@
     <section class="contact"><div class="wrap"><div class="contact-box reveal"><div><div class="kicker" style="color:var(--green)">YUK, MULAI BERKARYA</div><h2>Jelajahi dunia teknologi bersama Lab RPL.</h2></div><a class="btn" href="#beranda">Kembali ke atas ↑</a></div></div></section>
   </main>
 
+
+  <div class="booking-modal" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <div class="booking-panel">
+      <button class="booking-close" type="button" onclick="closeBookingModal()" aria-label="Tutup">×</button>
+      <div class="kicker">Reservasi fleksibel</div>
+      <h3 id="booking-title">Pinjam Laboratorium RPL</h3>
+      <p>Pilih hari, ruang, jam mulai dan selesai. Pengajuan hanya dapat disimpan jika ruang yang dipilih tidak bentrok.</p>
+      <form id="booking-form" class="booking-form">
+        <div class="booking-field"><label for="day-select">Hari</label><select id="day-select" required><option>Senin</option><option>Selasa</option><option>Rabu</option><option>Kamis</option><option>Jumat</option></select></div>
+        <div class="booking-field"><label for="room-select">Ruangan</label><select id="room-select"><option>Lab A</option><option>Lab B</option></select></div>
+        <div class="booking-field"><label for="start-time">Jam mulai</label><input id="start-time" type="time" min="07:00" max="17:00" value="09:00" required></div>
+        <div class="booking-field"><label for="end-time">Jam selesai</label><input id="end-time" type="time" min="07:00" max="17:00" value="11:00" required></div>
+        <div class="booking-field"><label for="borrower-name">Nama peminjam</label><input id="borrower-name" required maxlength="80" placeholder="Nama lengkap"></div>
+        <div class="booking-field"><label for="borrower-class">Kelas / jabatan</label><input id="borrower-class" required maxlength="80" placeholder="Contoh: XI PPLG 1 / Guru"></div>
+        <div class="booking-field full"><label for="borrower-purpose">Keperluan</label><textarea id="borrower-purpose" rows="2" required maxlength="240" placeholder="Tujuan peminjaman lab"></textarea></div>
+        <div id="live-availability-box" class="availability-message" aria-live="polite">Periksa ketersediaan...</div>
+        <button id="submit-booking-btn" class="booking-submit" type="submit">Konfirmasi peminjaman</button>
+      </form>
+    </div>
+  </div>
+  <div class="booking-toast" id="toast" role="status" aria-live="polite"></div>
+
   <footer><div class="wrap footer-inner"><div><strong>LAB RPL</strong> · SMK Bhakti Persada</div><div>Belajar · Praktik · Berkarya</div><div>© <span id="year"></span> Laboratorium RPL</div></div></footer>
 
   <script>
@@ -208,6 +286,75 @@
     const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.12});
     document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
     document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Jadwal & peminjaman lab: penyimpanan lokal browser (fitur simulasi).
+    const defaultBookings = [
+      {id:1,day:'Senin',start:'08:00',end:'10:00',room:'Lab A',activity:'Praktikum Pemrograman Dasar',borrower:'Kelas X PPLG 1',type:'KBM'},
+      {id:2,day:'Senin',start:'08:00',end:'10:00',room:'Lab B',activity:'Praktikum Pemrograman Dasar',borrower:'Kelas X PPLG 2',type:'KBM'},
+      {id:3,day:'Selasa',start:'10:00',end:'12:00',room:'Lab A',activity:'Pengembangan Perangkat Web',borrower:'Kelas XI PPLG 1',type:'KBM'},
+      {id:4,day:'Rabu',start:'08:00',end:'10:00',room:'Lab A',activity:'Praktikum Basis Data & SQL',borrower:'Kelas XI PPLG 1',type:'KBM'},
+      {id:5,day:'Rabu',start:'08:00',end:'10:00',room:'Lab B',activity:'Praktikum Basis Data & SQL',borrower:'Kelas XI PPLG 2',type:'KBM'},
+      {id:6,day:'Kamis',start:'13:00',end:'15:00',room:'Lab B',activity:'Pengembangan Aplikasi Mobile',borrower:'Kelas XII PPLG',type:'KBM'}
+    ];
+    const dayOrder={Senin:1,Selasa:2,Rabu:3,Kamis:4,Jumat:5};
+    let bookings;
+    try { bookings=JSON.parse(localStorage.getItem('labRplCustomBookings')) || structuredClone(defaultBookings); }
+    catch(e){ bookings=defaultBookings.map(x=>({...x})); }
+    const byId=id=>document.getElementById(id);
+    const bookingModal=byId('booking-modal'), daySelect=byId('day-select'), roomSelect=byId('room-select'),
+      startInput=byId('start-time'), endInput=byId('end-time'), availabilityBox=byId('live-availability-box'),
+      submitBooking=byId('submit-booking-btn');
+    const minutes=t=>{const [h,m]=t.split(':').map(Number);return h*60+m;};
+    const overlaps=(a,b,c,d)=>minutes(a)<minutes(d)&&minutes(b)>minutes(c);
+    function saveBookings(){localStorage.setItem('labRplCustomBookings',JSON.stringify(bookings));}
+    function checkSlotAvailability(day,room,start,end){
+      if(!start||!end||minutes(start)>=minutes(end))return {valid:false,message:'Jam selesai harus lebih akhir dari jam mulai.'};
+      if(minutes(start)<420||minutes(end)>1020)return {valid:false,message:'Jam peminjaman dibatasi pukul 07.00–17.00 WIB.'};
+      const selected=bookings.find(b=>b.day===day&&b.room===room&&overlaps(start,end,b.start,b.end));
+      const otherRoom=room==='Lab A'?'Lab B':'Lab A';
+      const other=bookings.find(b=>b.day===day&&b.room===otherRoom&&overlaps(start,end,b.start,b.end));
+      if(selected&&other)return {valid:false,message:'Kedua lab sedang terpakai pada rentang waktu tersebut.'};
+      if(selected)return {valid:false,message:room+' bentrok dengan '+selected.start+'–'+selected.end+'. Coba ruang '+otherRoom+' atau ubah jam.'};
+      return {valid:true,message:room+' tersedia pada '+day+', '+start+'–'+end+' WIB.'};
+    }
+    function renderTable(){
+      const tbody=byId('schedule-table-body'); if(!tbody)return; tbody.innerHTML='';
+      [...bookings].sort((a,b)=>(dayOrder[a.day]||9)-(dayOrder[b.day]||9)||minutes(a.start)-minutes(b.start)).forEach(item=>{
+        const otherRoom=item.room==='Lab A'?'Lab B':'Lab A';
+        const both=bookings.some(b=>b.day===item.day&&b.room===otherRoom&&overlaps(item.start,item.end,b.start,b.end));
+        const tr=document.createElement('tr');
+        const values=[item.day,item.start+'–'+item.end+' WIB',item.room,item.activity+' · '+item.borrower];
+        values.forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.appendChild(td);});
+        const status=document.createElement('td');const badge=document.createElement('span');
+        badge.className='schedule-status'+(both?' full':'');badge.textContent=both?'Kedua lab penuh':otherRoom+' masih kosong';status.appendChild(badge);tr.appendChild(status);
+        const action=document.createElement('td');const btn=document.createElement('button');btn.className='table-action';btn.textContent=both?'Penuh':'Pinjam '+otherRoom;btn.disabled=both;
+        if(!both)btn.addEventListener('click',()=>openBookingModal(item.day,otherRoom,item.start,item.end));
+        action.appendChild(btn);tr.appendChild(action);tbody.appendChild(tr);
+      });
+    }
+    function updateLiveValidation(){
+      const result=checkSlotAvailability(daySelect.value,roomSelect.value,startInput.value,endInput.value);
+      availabilityBox.textContent=result.message;availabilityBox.className='availability-message '+(result.valid?'ok':'no');submitBooking.disabled=!result.valid;
+    }
+    [daySelect,roomSelect,startInput,endInput].forEach(el=>{el.addEventListener('input',updateLiveValidation);el.addEventListener('change',updateLiveValidation);});
+    function openBookingModal(day='Jumat',room='Lab A',start='09:00',end='11:00'){
+      daySelect.value=day;roomSelect.value=room;startInput.value=start;endInput.value=end;updateLiveValidation();
+      bookingModal.classList.add('open');document.body.style.overflow='hidden';
+    }
+    function closeBookingModal(){bookingModal.classList.remove('open');document.body.style.overflow='';}
+    bookingModal.addEventListener('click',e=>{if(e.target===bookingModal)closeBookingModal();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBookingModal();});
+    byId('booking-form').addEventListener('submit',e=>{
+      e.preventDefault();const check=checkSlotAvailability(daySelect.value,roomSelect.value,startInput.value,endInput.value);
+      if(!check.valid){updateLiveValidation();return;}
+      const name=byId('borrower-name').value.trim(), kelas=byId('borrower-class').value.trim(), purpose=byId('borrower-purpose').value.trim();
+      bookings.push({id:Date.now(),day:daySelect.value,start:startInput.value,end:endInput.value,room:roomSelect.value,activity:purpose,borrower:name+' ('+kelas+')',type:'Peminjaman'});
+      saveBookings();renderTable();closeBookingModal();e.target.reset();showToast('Pengajuan simulasi peminjaman berhasil disimpan di browser ini.');
+    });
+    function showToast(message){const toast=byId('toast');toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3500);}
+    function resetDemoData(){if(!confirm('Kembalikan jadwal ke data contoh awal? Data peminjaman lokal akan dihapus.'))return;localStorage.removeItem('labRplCustomBookings');bookings=defaultBookings.map(x=>({...x}));renderTable();showToast('Jadwal contoh dipulihkan.');}
+    renderTable();
+
   </script>
 </body>
 </html>
